@@ -48,7 +48,7 @@ public class Main {
         int linhaInicioFila = 0;
         int colunaInicioFila = 0;
 
-        FloodFill.inundacaoFila(matriz, linhaInicioFila, colunaInicioFila, valorAlvo, substituto);
+        FloodFill.inundacaoFila(matriz, linhaInicioFila, colunaInicioFila, alvo, substituto);
 
         // Exibir a matriz após a inundação usando Fila
         System.out.println("\nUsando Fila:");
