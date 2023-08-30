@@ -7,10 +7,11 @@ public class Main {
 
         for (int i = 0; i < numLinhas; i++) {
             for (int j = 0; j < numColunas; j++) {
-                if (i == j || j > i) {
-                    matriz[i][j] = 1;
-                } else {
+                if((i - 1) == j){
                     matriz[i][j] = 0;
+                }
+                else{
+                    matriz[i][j] = 1;
                 }
             }
         }
