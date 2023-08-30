@@ -5,14 +5,25 @@ class FloodFill {
         pilha.empilhar(linha);
         pilha.empilhar(coluna);
 
-        for(int i = 0; i < matriz.length; i ++){
-            for(int j = 0; j < matriz[i].length; j ++){
-                if(matriz[i][j] == 1 && j >= i){
-                    matriz[i][j] = 9;
-                }
-            }
-        }
+        while (!pilha.estaVazia()) {
+            int y = pilha.desempilhar();
+            int x = pilha.desempilhar();
 
+            if (x < 0 || x >= matriz[0].length || y < 0 || y >= matriz.length || matriz[y][x] != valorAlvo) {
+                continue;
+            }
+
+            matriz[y][x] = substituto;
+
+            pilha.empilhar(y - 1);
+            pilha.empilhar(x);
+            pilha.empilhar(y + 1);
+            pilha.empilhar(x);
+            pilha.empilhar(y);
+            pilha.empilhar(x - 1);
+            pilha.empilhar(y);
+            pilha.empilhar(x + 1);
+        }
         imprimirMatriz(matriz, "Matriz final após inundação por pilha:");
     }
 
