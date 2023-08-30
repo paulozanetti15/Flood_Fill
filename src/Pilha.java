@@ -1,23 +1,26 @@
 class Pilha {
     private int tamanhoMaximo;
     private int[] arrayPilha;
-    private int topo;
+    private int topoMin;
+    private int topoMax;
 
     public Pilha(int tamanho) {
         tamanhoMaximo = tamanho;
         arrayPilha = new int[tamanhoMaximo];
-        topo = -1;
+        topoMin = -1;
+        topoMax = 143;
     }
 
     public void empilhar(int valor) {
-        arrayPilha[++topo] = valor;
+        if(topoMin < tamanhoMaximo)
+            arrayPilha[++topoMin] = valor;
     }
 
     public int desempilhar() {
-        return arrayPilha[topo--];
+        return arrayPilha[topoMax--];
     }
 
     public boolean estaVazia() {
-        return (topo == -1);
+        return (topoMax == -1);
     }
 }
