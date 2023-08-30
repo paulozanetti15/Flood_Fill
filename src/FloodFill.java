@@ -1,5 +1,6 @@
 class FloodFill {
     public static void inundacaoPilha(int[][] matriz, int linha, int coluna, int valorAlvo, int substituto) {
+        imprimirMatriz(matriz, "Matriz inicial:");
         Pilha pilha = new Pilha(matriz.length * matriz[0].length);
         pilha.empilhar(linha);
         pilha.empilhar(coluna);
@@ -13,8 +14,6 @@ class FloodFill {
             }
 
             matriz[y][x] = substituto;
-            System.out.println("Matriz modificada:");
-            imprimirMatriz(matriz);
 
             pilha.empilhar(y - 1);
             pilha.empilhar(x);
@@ -25,9 +24,11 @@ class FloodFill {
             pilha.empilhar(y);
             pilha.empilhar(x + 1);
         }
+        imprimirMatriz(matriz, "Matriz final após inundação por pilha:");
     }
 
     public static void inundacaoFila(int[][] matriz, int linha, int coluna, int valorAlvo, int substituto) {
+        imprimirMatriz(matriz, "Matriz inicial:");
         Fila fila = new Fila(matriz.length * matriz[0].length);
         fila.enfileirar(linha);
         fila.enfileirar(coluna);
@@ -41,8 +42,6 @@ class FloodFill {
             }
 
             matriz[y][x] = substituto;
-            System.out.println("Matriz modificada:");
-            imprimirMatriz(matriz);
 
             fila.enfileirar(y - 1);
             fila.enfileirar(x);
@@ -53,9 +52,11 @@ class FloodFill {
             fila.enfileirar(y);
             fila.enfileirar(x + 1);
         }
+        imprimirMatriz(matriz, "Matriz final após inundação por fila:");
     }
 
-    private static void imprimirMatriz(int[][] matriz) {
+    private static void imprimirMatriz(int[][] matriz, String mensagem) {
+        System.out.println(mensagem);
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 System.out.print(matriz[i][j] + " ");

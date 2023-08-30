@@ -20,7 +20,6 @@ public class Main {
         int alvo = 1;
         int substituto = 9;
 
-        System.out.println("Usando Pilha:");
         FloodFill.inundacaoPilha(matriz, linhaInicioPilha, colunaInicioPilha, alvo, substituto);
 
         for (int i = 0; i < numLinhas; i++) {
@@ -36,7 +35,6 @@ public class Main {
         int linhaInicioFila = 0;
         int colunaInicioFila = 0;
 
-        System.out.println("\nUsando Fila:");
         FloodFill.inundacaoFila(matriz, linhaInicioFila, colunaInicioFila, alvo, substituto);
     }
 }
